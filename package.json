@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@pierre/vercel": "^2.0.0",
     "astro": "^5.2.3"
   }
 }
