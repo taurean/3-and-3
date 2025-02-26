@@ -1,0 +1,12 @@
+.form {
+    outline: 1px solid #122114;
+    padding: 20px;
+}
+
+.input::placeholder {
+    color: #96ab98;
+}
+
+.input {
+    color: white;
+}

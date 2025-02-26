@@ -1,0 +1,46 @@
+:root {
+    --hue-fg: #96ab98;
+    --hue-bg: #020c02;
+    --hue-border: #122114;
+    --hue-accent: #00cc25;
+
+    --family-sf: system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--hue-bg);
+    color: var(--hue-fg);
+    font-family: var(--family-sf);
+    min-height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin-inline: auto;
+    width: 100%;
+    max-width: fit-content;
+    margin: 0 auto;
+}
+
+.heading {
+    margin-block-end: 40px;
+}
+
+main {
+    margin-block-end: 120px;
+}
+
+.content {
+    margin-block-end: 80px;
+}
+.footer {
+    max-width: 340px;
+    text-wrap: balance;
+}
+
+input::placeholder {
+    color: var(--hue-fg);
+}

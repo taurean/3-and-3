@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import styles from "./SignUpFormReact.module.css";
+
 const INIT = "INIT";
 const SUBMITTING = "SUBMITTING";
 const ERROR = "ERROR";
@@ -133,23 +135,8 @@ export default function SignUpFormReact() {
     switch (formState) {
         case SUCCESS:
             return (
-                <div
-                    style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        width: "100%",
-                    }}
-                >
-                    <p
-                        style={{
-                            fontFamily: `'${formStyles.successFont}', sans-serif`,
-                            color: formStyles.successFontColor,
-                            fontSize: `${formStyles.successFontSizePx}px`,
-                        }}
-                    >
-                        {formStyles.successMessage}
-                    </p>
+                <div className={styles.success}>
+                    <p>{formStyles.successMessage}</p>
                 </div>
             );
         case ERROR:
@@ -162,40 +149,15 @@ export default function SignUpFormReact() {
         default:
             return (
                 <>
-                    <form
-                        onSubmit={handleSubmit}
-                        style={{
-                            display: "flex",
-                            flexDirection: isInline ? "row" : "column",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            width: "100%",
-                        }}
-                    >
+                    <form className={styles.form} onSubmit={handleSubmit}>
                         <input
+                            className={styles.input}
                             type="text"
                             name="email"
-                            placeholder={formStyles.placeholderText}
+                            placeholder={`mail@3-3.fyi`}
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required={true}
-                            style={{
-                                color: formStyles.formFontColor,
-                                fontFamily: `'${formStyles.formFont}', sans-serif`,
-                                fontSize: `${formStyles.formFontSizePx}px`,
-                                margin: isInline
-                                    ? "0px 10px 0px 0px"
-                                    : "0px 0px 10px",
-                                width: "100%",
-                                maxWidth: "300px",
-                                minWidth: "100px",
-                                background: "#FFFFFF",
-                                border: "1px solid #D1D5DB",
-                                boxSizing: "border-box",
-                                boxShadow: "rgba(0, 0, 0, 0.05) 0px 1px 2px",
-                                borderRadius: "6px",
-                                padding: "8px 12px",
-                            }}
                         />
                         <div
                             aria-hidden="true"
@@ -209,20 +171,8 @@ export default function SignUpFormReact() {
 
     function SignUpFormError() {
         return (
-            <div
-                style={{
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: "100%",
-                }}
-            >
-                <p
-                    style={{
-                        fontFamily: "Inter, sans-serif",
-                        color: "rgb(185, 28, 28)",
-                        fontSize: "14px",
-                    }}
-                >
+            <div>
+                <p>
                     {errorMessage ||
                         "Oops! Something went wrong, please try again"}
                 </p>
@@ -235,16 +185,6 @@ export default function SignUpFormReact() {
 
         return (
             <button
-                style={{
-                    color: "#6b7280",
-                    font: "14px, Inter, sans-serif",
-                    margin: "10px auto",
-                    textAlign: "center",
-                    background: "transparent",
-                    border: "none",
-                    cursor: "pointer",
-                    textDecoration: isHovered ? "underline" : "none",
-                }}
                 onMouseOut={() => setIsHovered(false)}
                 onMouseOver={() => setIsHovered(true)}
                 onClick={resetForm}
@@ -256,34 +196,12 @@ export default function SignUpFormReact() {
 
     function SignUpFormButton({ props }) {
         return (
-            <button
-                type="submit"
-                style={{
-                    background: formStyles.buttonColor,
-                    fontSize: `${formStyles.buttonFontSizePx}px`,
-                    color: formStyles.buttonFontColor,
-                    fontFamily: `'${formStyles.buttonFont}', sans-serif`,
-                    width: isInline ? "min-content" : "100%",
-                    maxWidth: "300px",
-                    whiteSpace: isInline ? "nowrap" : "normal",
-                    height: "38px",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexDirection: "row",
-                    padding: "9px 17px",
-                    boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.05)",
-                    borderRadius: "6px",
-                    textAlign: "center",
-                    fontStyle: "normal",
-                    fontWeight: 500,
-                    lineHeight: "20px",
-                    border: "none",
-                    cursor: "pointer",
-                }}
-            >
-                {formState === SUBMITTING
-                    ? "Please wait..."
-                    : formStyles.buttonText}
+            <button type="submit">
+                <span data-visually-hidden>
+                    {formState === SUBMITTING
+                        ? "Please wait..."
+                        : formStyles.buttonText}
+                </span>
             </button>
         );
     }

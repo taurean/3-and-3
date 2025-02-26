@@ -1,17 +1,30 @@
 ---
-import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import SignUpFormReact from "../components/SignUpFormReact.jsx";
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import logo from "../assets/logo.svg";
 ---
 
 <Layout>
-    <!-- <Welcome /> -->
-    <h1
-        style="text-align: center; font-family: sans-serif; margin-block-start: 4rem;"
-    >
-        3&3
-    </h1>
-    <SignUpFormReact client:load />
+    <div class="wrapper">
+        <header class="heading">
+            <h1>
+                <img src={logo.src} alt="3 and 3 Logo" />
+            </h1>
+        </header>
+        <main>
+            <p class="u:step-2 content">
+                3 industry things to keep you plugged in <br />
+                3 non-industry things to keep you curious <br />
+                <br />
+                every few weeks <sup>†</sup>
+            </p>
+            <SignUpFormReact client:load />
+        </main>
+        <footer>
+            <p class="u:fw-600 u:step--2 footer">
+                <sup>†</sup> Plus Bluesky feeds, community newsletter updates, and
+                regular virtual meetups
+            </p>
+        </footer>
+    </div>
 </Layout>
