@@ -1,12 +1,113 @@
 ---
-const { title = "3&3", ...props } = Astro.props;
+// Accept custom title, description and other metadata as props
+const {
+    title = "3&3",
+    description = "A curated newsletter for designers: 3 industry things to keep you plugged in, 3 non-industry things to keep you curious. Delivered every few weeks.",
+    ogImage = "/images/og-image.png", // Create a social sharing image (1200x630px recommended)
+    // Use 3-3.fyi as the canonical root URL
+    canonicalURL = new URL("https://3-3.fyi"),
+    ...props
+} = Astro.props;
+
 import "../styles/stylebase.css";
 ---
 
 <head>
+    <!-- Essential Meta Tags -->
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <title>{props.title}</title>
+
+    <!-- Favicon - using size-optimized SVGs for different contexts -->
+    <!-- Default favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Size-specific favicon optimizations -->
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="/favicon-16.svg"
+        sizes="16x16"
+    />
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="/favicon-32.svg"
+        sizes="32x32"
+    />
+
+    <!-- Apple Touch Icon (optimized for iOS home screens) -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
+
+    <!-- Safari Pinned Tab Icon -->
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00CC25" />
+
+    <!-- Web App Manifest -->
+    <!-- <link rel="manifest" href="/site.webmanifest" /> -->
+
+    <!-- Fallbacks for browsers that don't support SVG favicons -->
+    <link rel="alternate icon" type="image/png" href="/favicon.png" />
+
+    <!-- Primary Meta Tags -->
+    <title>{title === "3&3" ? "3&3 Newsletter" : title}</title>
+    <meta name="title" content={title === "3&3" ? "3&3 Newsletter" : title} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+        property="og:url"
+        content={typeof canonicalURL === "string"
+            ? canonicalURL
+            : canonicalURL.toString()}
+    />
+    <meta
+        property="og:title"
+        content={title === "3&3" ? "3&3 Newsletter" : title}
+    />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+        property="twitter:url"
+        content={typeof canonicalURL === "string"
+            ? canonicalURL
+            : canonicalURL.toString()}
+    />
+    <meta
+        property="twitter:title"
+        content={title === "3&3" ? "3&3 Newsletter" : title}
+    />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+
+    <!-- Additional SEO tags -->
+    <meta
+        name="keywords"
+        content="design newsletter, creative inspiration, design resources, creative community, design industry, designer newsletter, 3&3"
+    />
+    <meta name="author" content="3&3 Newsletter" />
+
+    <!-- Dark/Light mode preference (optional) -->
+    <meta name="color-scheme" content="dark light" />
+    <meta
+        name="theme-color"
+        content="#000000"
+        media="(prefers-color-scheme: dark)"
+    />
+    <meta
+        name="theme-color"
+        content="#ffffff"
+        media="(prefers-color-scheme: light)"
+    />
+
+    <!-- Preconnect to improve performance (optional) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Any custom head content -->
+    {props.headContent}
 </head>
