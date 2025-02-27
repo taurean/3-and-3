@@ -1,6 +1,53 @@
-.form {
-    outline: 1px solid #122114;
-    padding: 20px;
+:root {
+    --hue-text: #;
+    --hue-border: #122114;
+}
+
+.messageBox,
+.inputWrapper {
+    border: 1px solid var(--hue-border);
+
+    padding: var(--space-2xs);
+}
+
+.messageBox {
+    p {
+        padding: var(--space-2xs);
+    }
+}
+
+.messageBoxSuccess {
+    border-color: var(--hue-accent);
+    background-color: var(--hue-accent);
+    color: var(--hue-bg);
+}
+
+.inputWrapper {
+    display: flex;
+    align-items: center;
+
+    &:focus-within {
+        outline-color: #96ab98;
+    }
+}
+
+.input,
+.button {
+    padding: var(--space-2xs);
+}
+
+.input {
+    display: block;
+    flex-grow: 2;
+    margin-inline-end: var(--space-xs);
+}
+
+.inputLabel {
+    display: block;
+}
+
+.inputWrapperSuccess {
+    background: #122114;
 }
 
 .input::placeholder {
@@ -9,4 +56,25 @@
 
 .input {
     color: white;
+}
+
+.button {
+    flex-grow: 1;
+    text-align: center;
+    font-family: monospace;
+
+    &:hover,
+    &:focus {
+        color: var(--hue-accent);
+        cursor: pointer;
+    }
+
+    &:focus {
+        outline: 1px solid var(--hue-border);
+    }
+
+    &:active {
+        transform: translateY(1px);
+        opacity: 0.8;
+    }
 }

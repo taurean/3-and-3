@@ -20,13 +20,17 @@ const formStyles = {
     buttonFontColor: "#ffffff",
     buttonColor: "#0D9488",
     buttonFontSizePx: 14,
-    successMessage: "Thanks! We'll be in touch!",
+    successMessage: "you're in! we can't wait to share more.",
     successFont: "Inter",
     successFontColor: "#000000",
     successFontSizePx: 14,
     userGroup: "",
 };
 const domain = "app.loops.so";
+
+function isValidEmail(email) {
+    return /.+@.+/.test(email);
+}
 
 export default function SignUpFormReact() {
     const [email, setEmail] = useState("");
@@ -132,49 +136,12 @@ export default function SignUpFormReact() {
 
     const isInline = formStyles.formStyle === "inline";
 
-    switch (formState) {
-        case SUCCESS:
-            return (
-                <div className={styles.success}>
-                    <p>{formStyles.successMessage}</p>
-                </div>
-            );
-        case ERROR:
-            return (
-                <>
-                    <SignUpFormError />
-                    <BackButton />
-                </>
-            );
-        default:
-            return (
-                <>
-                    <form className={styles.form} onSubmit={handleSubmit}>
-                        <input
-                            className={styles.input}
-                            type="text"
-                            name="email"
-                            placeholder={`mail@3-3.fyi`}
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required={true}
-                        />
-                        <div
-                            aria-hidden="true"
-                            style={{ position: "absolute", left: "-2024px" }}
-                        ></div>
-                        <SignUpFormButton />
-                    </form>
-                </>
-            );
-    }
-
     function SignUpFormError() {
         return (
             <div>
                 <p>
                     {errorMessage ||
-                        "Oops! Something went wrong, please try again"}
+                        "Oops! Something went wrong, please try again."}
                 </p>
             </div>
         );
@@ -185,6 +152,7 @@ export default function SignUpFormReact() {
 
         return (
             <button
+                className={styles.button}
                 onMouseOut={() => setIsHovered(false)}
                 onMouseOver={() => setIsHovered(true)}
                 onClick={resetForm}
@@ -196,17 +164,66 @@ export default function SignUpFormReact() {
 
     function SignUpFormButton({ props }) {
         return (
-            <button type="submit">
+            <button className={styles.button} type="submit">
                 <span data-visually-hidden>
                     {formState === SUBMITTING
                         ? "Please wait..."
                         : formStyles.buttonText}
                 </span>
+                send
             </button>
         );
     }
-}
 
-function isValidEmail(email) {
-    return /.+@.+/.test(email);
+    switch (formState) {
+        case SUCCESS:
+            return (
+                <div
+                    className={`${styles.messageBox} + ${styles.messageBoxSuccess}`}
+                >
+                    <p>{formStyles.successMessage}</p>
+                </div>
+            );
+        case ERROR:
+            return (
+                <>
+                    <div className={styles.messageBox}>
+                        <p>
+                            <SignUpFormError />
+                        </p>
+                    </div>
+                    <BackButton />
+                </>
+            );
+        default:
+            return (
+                <>
+                    <form className={styles.form} onSubmit={handleSubmit}>
+                        <label className={styles.inputLabel} htmlFor="email">
+                            email
+                        </label>
+                        <div className={styles.inputWrapper}>
+                            <input
+                                className={styles.input}
+                                type="text"
+                                name="email"
+                                placeholder={`mail@3-3.fyi`}
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required={true}
+                                id="email"
+                            />
+                            <div
+                                aria-hidden="true"
+                                style={{
+                                    position: "absolute",
+                                    left: "-2024px",
+                                }}
+                            ></div>
+                            <SignUpFormButton />
+                        </div>
+                    </form>
+                </>
+            );
+    }
 }

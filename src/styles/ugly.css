@@ -18,7 +18,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
+    /* height: 100%; */
+    padding-block-start: 10vw;
     margin-inline: auto;
     width: 100%;
     max-width: fit-content;
@@ -30,17 +31,30 @@ body {
 }
 
 main {
-    margin-block-end: 120px;
+    margin-block-end: 80px;
 }
 
 .content {
-    margin-block-end: 80px;
+    margin-block-end: 40px;
 }
 .footer {
     max-width: 340px;
     text-wrap: balance;
+    margin-block-end: var(--space-s);
+
+    & p + p {
+        margin-block-start: var(--space-s);
+    }
 }
 
 input::placeholder {
     color: var(--hue-fg);
+}
+
+p a {
+    text-decoration: underline;
+}
+
+* {
+    text-transform: lowercase;
 }
