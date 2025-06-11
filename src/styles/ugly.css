@@ -47,6 +47,27 @@ main {
     }
 }
 
+.social-links {
+    display: flex;
+    gap: var(--space-xs, 16px);
+    margin-block-end: var(--space-s, 24px);
+
+    & a {
+        color: var(--hue-fg);
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: var(--hue-accent);
+        }
+
+        & svg {
+            display: block;
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
+
 input::placeholder {
     color: var(--hue-fg);
 }
