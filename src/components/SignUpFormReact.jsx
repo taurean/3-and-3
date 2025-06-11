@@ -170,7 +170,7 @@ export default function SignUpFormReact() {
                         ? "Please wait..."
                         : formStyles.buttonText}
                 </span>
-                send
+                subscribe
             </button>
         );
     }
