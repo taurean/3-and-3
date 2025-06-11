@@ -1,6 +1,7 @@
 :root {
     --hue-text: #;
     --hue-border: #122114;
+    --hue-muted: #4e5a4d;
 }
 
 .messageBox,
@@ -75,7 +76,7 @@
     }
 
     &:focus {
-        outline: 1px solid var(--hue-border);
+        outline: 1px solid var(--hue-muted);
     }
 
     &:active {

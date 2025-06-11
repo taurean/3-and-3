@@ -3,6 +3,7 @@
     --hue-bg: #020c02;
     --hue-border: #122114;
     --hue-accent: #00cc25;
+    --hue-muted: #4e5a4d;
 
     --family-sf: system-ui, sans-serif;
 }
@@ -57,8 +58,14 @@ main {
         color: var(--hue-fg);
         transition: color 0.2s ease;
 
-        &:hover {
+        &:hover,
+        &:focus {
             color: var(--hue-accent);
+        }
+
+        &:focus {
+            outline: 1px solid var(--hue-muted);
+            outline-offset: 4px;
         }
 
         & svg {
@@ -86,7 +93,23 @@ p a {
     opacity: 0.7;
 }
 
-.footer a {
+.simple-anchor {
     text-underline-offset: 3px;
-    text-decoration-color: #4e5a4d;
+    text-decoration-color: var(--hue-muted);
+    outline: 1px solid transparent;
+    transition:
+        text-decoration-color 75ms ease-in-out,
+        text-underline-offset 75ms ease-in-out,
+        outline 75ms ease-in-out;
+
+    &:hover,
+    &:focus {
+        text-decoration-color: var(--hue-accent);
+        text-underline-offset: 4px;
+    }
+
+    &:focus {
+        outline: 1px solid var(--hue-muted);
+        outline-offset: 4px;
+    }
 }
