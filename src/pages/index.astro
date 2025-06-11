@@ -12,11 +12,17 @@ import logo from "../assets/logo.svg";
             </h1>
         </header>
         <main>
-            <p class="u:step-2 content">
-                3 industry things to keep you plugged in <br />
-                3 non-industry things to keep you curious <br />
-                <br />
-                every few weeks <sup>†</sup>
+            <p class="content u:step-1">
+                A virtual meetup series and newsletter for designers,
+                developers, and makers looking for community, once a month.
+            </p>
+            <p class="u:step-1 content">
+                Three things to keep you ready to work.<br />
+                Three things to keep you curious outside of work
+            </p>
+            <p class="content u:step-0">
+                {new Date().toLocaleString("default", { month: "long" })} issue coming
+                soon<sup> †</sup>
             </p>
             <SignUpFormReact client:load />
         </main>
@@ -92,8 +98,9 @@ import logo from "../assets/logo.svg";
                 </a>
             </div>
             <p class="u:fw-600 u:step--2">
-                <sup>†</sup> Plus Bluesky feeds, community newsletter updates, and
-                regular virtual meetups
+                <sup>†</sup> view our <a href="" target="_blank"
+                    >past issue archive</a
+                > on Are.na
             </p>
         </footer>
     </div>

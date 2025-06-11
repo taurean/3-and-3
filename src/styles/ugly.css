@@ -35,7 +35,8 @@ main {
 }
 
 .content {
-    margin-block-end: 40px;
+    margin-block: 1em;
+    max-width: 36ch;
 }
 .footer {
     max-width: 340px;
@@ -78,4 +79,14 @@ p a {
 
 * {
     text-transform: lowercase;
+}
+
+.content:last-of-type {
+    margin-block-end: 40px;
+    opacity: 0.7;
+}
+
+.footer a {
+    text-underline-offset: 3px;
+    text-decoration-color: #4e5a4d;
 }
