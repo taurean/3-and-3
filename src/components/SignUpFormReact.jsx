@@ -170,7 +170,7 @@ export default function SignUpFormReact() {
                         ? "Please wait..."
                         : formStyles.buttonText}
                 </span>
-                send
+                subscribe
             </button>
         );
     }
@@ -200,7 +200,7 @@ export default function SignUpFormReact() {
                 <>
                     <form className={styles.form} onSubmit={handleSubmit}>
                         <label className={styles.inputLabel} htmlFor="email">
-                            email
+                            email address
                         </label>
                         <div className={styles.inputWrapper}>
                             <input
