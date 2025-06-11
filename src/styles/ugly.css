@@ -36,8 +36,12 @@ main {
 }
 
 .content {
-    margin-block: 1em;
-    max-width: 36ch;
+    max-width: 40ch;
+    text-wrap: balance;
+
+    & + & {
+        margin-block-start: 1em;
+    }
 }
 .footer {
     max-width: 340px;
