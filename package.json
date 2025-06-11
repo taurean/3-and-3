@@ -1,9 +1,9 @@
 {
-    "name": "3 and 3",
+    "name": "three-and-three",
     "type": "module",
     "version": "0.0.1",
     "scripts": {
-        "dev": "astro dev",
+        "dev": "astro dev --host",
         "build": "astro build",
         "preview": "astro preview",
         "astro": "astro"

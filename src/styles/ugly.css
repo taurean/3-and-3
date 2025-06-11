@@ -13,6 +13,7 @@ body {
     color: var(--hue-fg);
     font-family: var(--family-sf);
     min-height: 100vh;
+    min-height: 100dvh;
 }
 
 .wrapper {
