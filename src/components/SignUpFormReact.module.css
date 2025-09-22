@@ -6,9 +6,31 @@
 
 .messageBox,
 .inputWrapper {
-    border: 1px solid var(--hue-border);
-
+    position: relative;
+    background: transparent;
+    border-radius: 8px;
+    backdrop-filter: blur(6px) brightness(120%);
     padding: var(--space-2xs);
+}
+
+.messageBox::before,
+.inputWrapper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid transparent;
+    border-radius: inherit;
+    background: radial-gradient(
+            95.37% 91.07% at 82.04% 42.74%,
+            #00cc25 0%,
+            #072f0f 100%
+        )
+        border-box;
+    mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+    z-index: -1;
 }
 
 .messageBox {
@@ -16,6 +38,7 @@
         padding: var(--space-2xs);
     }
 }
+border: 1px solid;
 
 .messageBoxSuccess {
     border-color: var(--hue-accent);
