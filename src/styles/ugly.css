@@ -9,11 +9,25 @@
 }
 
 body {
-    background-color: var(--hue-bg);
+    background: linear-gradient(to bottom, #020c02 31%, #072407 100%);
     color: var(--hue-fg);
     font-family: var(--family-sf);
     min-height: 100vh;
     min-height: 100dvh;
+    position: relative;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    right: -15%;
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    opacity: 0.2;
+    mix-blend-mode: exclusion;
+    pointer-events: none;
+    z-index: -1;
 }
 
 .wrapper {
@@ -42,6 +56,7 @@ main {
 
     & + & {
         margin-block-start: 1em;
+        color: #00cc25;
     }
 }
 .footer {
