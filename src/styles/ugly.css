@@ -1,135 +1,135 @@
 :root {
-    --hue-fg: #96ab98;
-    --hue-bg: #020c02;
-    --hue-border: #122114;
-    --hue-accent: #00cc25;
-    --hue-muted: #4e5a4d;
+  --hue-fg: #96ab98;
+  --hue-bg: #020c02;
+  --hue-border: #122114;
+  --hue-accent: #00cc25;
+  --hue-muted: #4e5a4d;
 
-    --family-sf: system-ui, sans-serif;
+  --family-sf: system-ui, sans-serif;
 }
 
 body {
-    background: linear-gradient(to bottom, #020c02 31%, #072407 100%);
-    color: var(--hue-fg);
-    font-family: var(--family-sf);
-    min-height: 100vh;
-    min-height: 100dvh;
-    position: relative;
+  background: linear-gradient(to bottom, #020c02 31%, #072407 100%);
+  color: var(--hue-fg);
+  font-family: var(--family-sf);
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
 }
 
 .video-background {
-    position: fixed;
-    top: 0;
-    right: -15%;
-    width: 110%;
-    height: 110%;
-    object-fit: cover;
-    opacity: 0.2;
-    mix-blend-mode: exclusion;
-    pointer-events: none;
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  right: -15%;
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+  opacity: 0.2;
+  mix-blend-mode: exclusion;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* height: 100%; */
-    padding-block-start: 10vw;
-    margin-inline: auto;
-    width: 100%;
-    max-width: fit-content;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* height: 100%; */
+  padding-block-start: 10vw;
+  margin-inline: auto;
+  width: 100%;
+  max-width: fit-content;
+  margin: 0 auto;
 }
 
 .heading {
-    margin-block-end: 40px;
+  margin-block-end: 40px;
 }
 
 main {
-    margin-block-end: 80px;
+  margin-block-end: 80px;
 }
 
 .content {
-    max-width: 40ch;
-    text-wrap: balance;
+  max-width: 46ch;
+  text-wrap: balance;
 
-    & + & {
-        margin-block-start: 1em;
-        color: #00cc25;
-    }
+  & + & {
+    margin-block-start: 1em;
+    /*color: #00cc25;*/
+  }
 }
 .footer {
-    max-width: 340px;
-    text-wrap: balance;
-    margin-block-end: var(--space-s);
+  max-width: 340px;
+  text-wrap: balance;
+  margin-block-end: var(--space-s);
 
-    & p + p {
-        margin-block-start: var(--space-s);
-    }
+  & p + p {
+    margin-block-start: var(--space-s);
+  }
+}
+
+[content-variant="emphasis"] {
+  color: #00cc25;
 }
 
 .social-links {
-    display: flex;
-    gap: var(--space-xs, 16px);
-    margin-block-end: var(--space-s, 24px);
+  display: flex;
+  gap: var(--space-xs, 16px);
+  margin-block-end: var(--space-s, 24px);
 
-    & a {
-        color: var(--hue-fg);
-        transition: color 0.2s ease;
-
-        &:hover,
-        &:focus {
-            color: var(--hue-accent);
-        }
-
-        &:focus {
-            outline: 1px solid var(--hue-muted);
-            outline-offset: 4px;
-        }
-
-        & svg {
-            display: block;
-            width: 24px;
-            height: 24px;
-        }
-    }
-}
-
-input::placeholder {
+  & a {
     color: var(--hue-fg);
-}
-
-p a {
-    text-decoration: underline;
-}
-
-* {
-    text-transform: lowercase;
-}
-
-.content:last-of-type {
-    margin-block-end: 40px;
-    opacity: 0.7;
-}
-
-.simple-anchor {
-    text-underline-offset: 3px;
-    text-decoration-color: var(--hue-muted);
-    outline: 1px solid transparent;
-    transition:
-        text-decoration-color 75ms ease-in-out,
-        text-underline-offset 75ms ease-in-out,
-        outline 75ms ease-in-out;
+    transition: color 0.2s ease;
 
     &:hover,
     &:focus {
-        text-decoration-color: var(--hue-accent);
-        text-underline-offset: 4px;
+      color: var(--hue-accent);
     }
 
     &:focus {
-        outline: 1px solid var(--hue-muted);
-        outline-offset: 4px;
+      outline: 1px solid var(--hue-muted);
+      outline-offset: 4px;
     }
+
+    & svg {
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+input::placeholder {
+  color: var(--hue-fg);
+}
+
+p a {
+  text-decoration: underline;
+}
+
+.content:last-of-type {
+  margin-block-end: 40px;
+  opacity: 0.7;
+}
+
+.simple-anchor {
+  text-underline-offset: 3px;
+  text-decoration-color: var(--hue-muted);
+  outline: 1px solid transparent;
+  transition:
+    text-decoration-color 75ms ease-in-out,
+    text-underline-offset 75ms ease-in-out,
+    outline 75ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    text-decoration-color: var(--hue-accent);
+    text-underline-offset: 4px;
+  }
+
+  &:focus {
+    outline: 1px solid var(--hue-muted);
+    outline-offset: 4px;
+  }
 }

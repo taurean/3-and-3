@@ -1,110 +1,114 @@
 :root {
-    --hue-text: #;
-    --hue-border: #122114;
-    --hue-muted: #4e5a4d;
+  --hue-text: #;
+  --hue-border: #122114;
+  --hue-muted: #4e5a4d;
 }
 
 .messageBox,
 .inputWrapper {
-    position: relative;
-    background: transparent;
-    border-radius: 8px;
-    backdrop-filter: blur(6px) brightness(120%);
-    padding: var(--space-2xs);
+  position: relative;
+  background: transparent;
+  border-radius: 8px;
+  backdrop-filter: blur(6px) brightness(120%);
+  padding: var(--space-2xs);
 }
 
 .messageBox::before,
 .inputWrapper::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: 1px solid transparent;
-    border-radius: inherit;
-    background: radial-gradient(
-            95.37% 91.07% at 82.04% 42.74%,
-            #00cc25 0%,
-            #072f0f 100%
-        )
-        border-box;
-    mask:
-        linear-gradient(#fff 0 0) padding-box,
-        linear-gradient(#fff 0 0);
-    mask-composite: subtract;
-    z-index: -1;
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  background: radial-gradient(
+      95.37% 91.07% at 82.04% 42.74%,
+      #00cc25 0%,
+      #072f0f 100%
+    )
+    border-box;
+  mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: subtract;
+  z-index: -1;
 }
 
 .messageBox {
-    p {
-        padding: var(--space-2xs);
-    }
+  p {
+    padding: var(--space-2xs);
+  }
 }
 border: 1px solid;
 
 .messageBoxSuccess {
-    border-color: var(--hue-accent);
-    background-color: var(--hue-accent);
-    color: var(--hue-bg);
+  border-color: var(--hue-accent);
+  background-color: var(--hue-accent);
+  color: var(--hue-bg);
 }
 
 .inputWrapper {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    &:focus-within {
-        outline-color: #96ab98;
-    }
+  &:focus-within {
+    outline-color: #96ab98;
+  }
 }
 
 .input,
 .button {
-    padding: var(--space-2xs);
+  padding: var(--space-2xs);
 }
 
 .input {
-    display: block;
-    flex-grow: 2;
-    margin-inline-end: var(--space-xs);
+  display: block;
+  flex-grow: 2;
+  margin-inline-end: var(--space-xs);
 }
 
 .inputLabel {
-    display: block;
-    margin-block-end: 4px;
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 12px;
-    opacity: 0.7;
+  display: block;
+  margin-block-end: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  opacity: 0.7;
 }
 
 .inputWrapperSuccess {
-    background: #122114;
+  background: #122114;
 }
 
 .input::placeholder {
-    color: #96ab98;
+  color: #96ab98;
 }
 
 .input {
-    color: white;
-    font-size: 16px;
+  color: white;
+  font-size: 16px;
 }
 
 .button {
-    flex-grow: 1;
-    text-align: center;
-    font-family: monospace;
+  flex-grow: 1;
+  text-align: center;
+  font-family: monospace;
 
-    &:hover,
-    &:focus {
-        color: var(--hue-accent);
-        cursor: pointer;
-    }
+  &:hover,
+  &:focus {
+    color: var(--hue-accent);
+    cursor: pointer;
+  }
 
-    &:focus {
-        outline: 1px solid var(--hue-muted);
-    }
+  &:focus {
+    outline: 1px solid var(--hue-muted);
+  }
 
-    &:active {
-        transform: translateY(1px);
-        opacity: 0.8;
-    }
+  &:active {
+    transform: translateY(1px);
+    opacity: 0.8;
+  }
+}
+
+form {
+  padding-block: var(--space-l) var(--space-m);
 }
